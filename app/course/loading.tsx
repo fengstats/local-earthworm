@@ -1,3 +1,3 @@
 export default function Loading() {
-  return <p className="bg-red-400 space-y-4">Loading...</p>;
+  return <p className="bg-green-500 text-slate-100 text-center">Loading...</p>;
 }
