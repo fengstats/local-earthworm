@@ -3,7 +3,7 @@ module.exports = {
     {
       name: "earthworm",
       script: "pnpm",
-      args: "dev",
+      args: "start",
       cwd: ".", // 替换为你的项目路径
       instances: 1,
       autorestart: true,
