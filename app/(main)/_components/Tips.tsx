@@ -6,47 +6,27 @@ interface Props {
   onShowAnswer: () => void;
 }
 
-export function Tips({ onShowAnswer }: Props) {
+export function Tips({ onShowAnswer: showAnswer }: Props) {
   const { playSound, audio } = usePlaySound();
-
-  function handleToAnswer() {
-    onShowAnswer();
-  }
 
   return (
     <div>
-      <TipsItem
-        text="tab"
-        description="show answer"
-        keyboardKey="Tab"
-        handler={handleToAnswer}
-      ></TipsItem>
-      <TipsItem
-        text="control"
-        description="play soundmark"
-        keyboardKey="Control"
-        handler={playSound}
-      ></TipsItem>
       {audio}
+      <TipsItem playSound={playSound} showAnswer={showAnswer} />
     </div>
   );
 }
 
-function TipsItem({
-  text,
-  description,
-  keyboardKey,
-  handler,
-}: {
-  text: string;
-  description: string;
-  keyboardKey: string;
-  handler: () => void;
-}) {
+function TipsItem({ playSound, showAnswer }: { playSound: () => void; showAnswer: () => void }) {
   useEffect(() => {
     function handleKeyDown(event: KeyboardEvent) {
-      if (event.key === keyboardKey) {
-        handler();
+      // Control + S
+      if (event.ctrlKey && event.key === "s") {
+        playSound();
+      }
+
+      if (event.key === "Tab") {
+        showAnswer();
       }
     }
     document.addEventListener("keydown", handleKeyDown);
@@ -55,15 +35,5 @@ function TipsItem({
     };
   }, []);
 
-  return (
-    <div className="flex gap-x-2 text-sm mt-3">
-      <button
-        className="rounded-sm px-2 bg-gray-600 text-white dark:text-gray-900"
-        onClick={handler}
-      >
-        {text}
-      </button>
-      <div className=" text-gray-600"> - {description}</div>
-    </div>
-  );
+  return <></>;
 }
