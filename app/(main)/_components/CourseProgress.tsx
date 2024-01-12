@@ -9,8 +9,9 @@ export function CourseProgress() {
   const percent = (value / max) * 100
 
   return (
-    <>
-      <Progress value={percent} className="w-[30%] min-w-[300px] mb-12" />
-    </>
+    <div className="flex items-center justify-center mb-16">
+      <Progress value={percent} className="w-[26vw] min-w-[300px]" />
+      <div className="w-[100px] text-right" style={{ fontFamily: "Maple Mono SC NF Freeze"}}>{value}/{max}</div>
+    </div>
   );
 }

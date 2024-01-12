@@ -5,4 +5,8 @@
   font-size: 18px;
   width: 30%;
   min-width: 100px;
+  align-items: center;
+  justify-content: center;
+  font-family: "Maple Mono SC NF Freeze";
+  flex: 0.1;
 }
