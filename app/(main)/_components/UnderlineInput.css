@@ -5,9 +5,9 @@
   justify-content: center;
   max-width: 80vw;
   margin-top: 8px;
+  /* font-family: "Monaco"; */
   /* font-family: "Input Mono Freeze"; */
   font-family: "Maple Mono SC NF Freeze";
-  /* font-family: "Maple UI"; */
 }
 
 .code-box .code-item {

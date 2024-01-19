@@ -43,7 +43,7 @@ export function Main() {
   return (
     <div className="h-full flex justify-center items-center relative">
       <div>{CurrentView}</div>
-      <div className="absolute bottom-10 mb-10 w-full flex flex-col items-center">
+      <div className="absolute bottom-[15%] w-full flex flex-col items-center">
         <CourseProgress></CourseProgress>
         <Tips onShowAnswer={handleShowAnswer}></Tips>
       </div>

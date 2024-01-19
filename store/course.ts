@@ -2,10 +2,7 @@
 import { create } from "zustand";
 import { Prisma } from "@prisma/client";
 import { useEffect, useRef } from "react";
-import {
-  fetchResetUserProgress,
-  fetchSaveUserProgress,
-} from "@/actions/userProgress";
+import { fetchResetUserProgress, fetchSaveUserProgress } from "@/actions/userProgress";
 
 export type Statement = Prisma.StatementGetPayload<{
   select: {
@@ -46,10 +43,7 @@ export const useCourse = create<State>((set, get) => ({
   checkCorrect(input: string) {
     const { currentStatement } = get();
 
-    return (
-      input.toLocaleLowerCase() ===
-      currentStatement?.english.toLocaleLowerCase()
-    );
+    return input.toLocaleLowerCase() === currentStatement?.english.toLocaleLowerCase();
   },
 
   toNextStatement() {
@@ -66,13 +60,7 @@ export const useCourse = create<State>((set, get) => ({
   },
 }));
 
-export function CourseStoreInitializer({
-  course,
-  statementIndex,
-}: {
-  course: Course;
-  statementIndex: number;
-}) {
+export function CourseStoreInitializer({ course, statementIndex }: { course: Course; statementIndex: number }) {
   const { setupCourse, currentCourse } = useCourse();
   const initialized = useRef(false);
 
@@ -82,6 +70,7 @@ export function CourseStoreInitializer({
     if (course.id === currentCourse.id) {
       return;
     }
+    console.log("hello");
     // 这里是从 summary 面板进入下一关  所以要从零开始
     const lastCourseId = currentCourse.id;
     fetchResetUserProgress({ courseId: lastCourseId! });

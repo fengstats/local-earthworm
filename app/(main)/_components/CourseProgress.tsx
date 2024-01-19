@@ -4,14 +4,17 @@ import { useCourse } from "@/store/course";
 export function CourseProgress() {
   const { statementIndex, currentCourse } = useCourse();
 
-  const max = currentCourse?.statements.length || 0;
+  const max = currentCourse?.statements?.length || 0;
   const value = statementIndex;
   const percent = (value / max) * 100
 
+
+  console.log(statementIndex)
+
   return (
-    <div className="flex items-center justify-center mb-16">
-      <Progress value={percent} className="w-[26vw] min-w-[300px]" />
-      <div className="w-[100px] text-right" style={{ fontFamily: "Maple UI" }}>{value}/{max}</div>
+    <div className="flex items-center justify-center">
+      <Progress value={percent} className="w-[30vw] min-w-[380px]" />
+      <div className="ml-[12px] text-right pt-[1px]" style={{ fontFamily: "Input Mono" }}>{value}/{max}</div>
     </div>
   );
 }

@@ -16,11 +16,7 @@ export async function fetchSaveUserProgress({
   });
 }
 
-export async function fetchResetUserProgress({
-  courseId,
-}: {
-  courseId: number;
-}) {
+export async function fetchResetUserProgress({ courseId }: { courseId: number }) {
   return await prisma.userProgress.upsert({
     where: { courseId },
     update: { statementIndex: 0, active: false },
