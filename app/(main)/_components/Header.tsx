@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { DarkModeBtn } from "./DarkModeBtn";
+import { CardShare } from "./CardShare";
 export const Header = () => {
   return (
     <header className="py-4 px-4 z-0">
@@ -20,6 +21,7 @@ export const Header = () => {
           </h1>
         </div>
         <div className="flex gap-4 items-center">
+          <CardShare />
           <Link href="/course" className="hover:text-fuchsia-500">
             更多课程
           </Link>

@@ -8,5 +8,6 @@
   align-items: center;
   justify-content: center;
   font-family: "Maple Mono SC NF Freeze";
+  /* font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
   flex: 0.1;
 }
