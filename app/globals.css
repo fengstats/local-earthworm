@@ -7,6 +7,13 @@ body {
   height: 100%;
 }
 
+/* NOTE: 可以解决 html2canvas 生成的 img 整体向下的问题 */
+/* @layer base {
+  img {
+    @apply inline-block;
+  }
+} */
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -82,12 +89,13 @@ body {
 }
 
 /* 磨砂背景 */
-body::before {
-  position: fixed;
+.noise {
+  position: absolute;
   inset: 0;
   content: "";
   background-size: 182px;
   opacity: 0.04;
-  z-index: -1;
-  background-image: url(https://cdn.jsdelivr.net/gh/fengstats/blogcdn@main/2024/noise.png);
+  /* 本地和远程图片加载 */
+  background-image: url(/noise.png);
+  /* background-image: url(https://cdn.jsdelivr.net/gh/fengstats/blogcdn@main/2024/noise.png); */
 }
