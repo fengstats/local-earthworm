@@ -22,7 +22,7 @@ export const DarkModeBtn = () => {
 
   return (
     <div
-      className="inline-block bg-primary text-white rounded-lg px-4 py-2 hover:bg-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 cursor-pointer select-none"
+      className="inline-block bg-primary text-white rounded-lg px-2 py-1 hover:bg-gray-600 dark:bg-gray-700 dark:hover:bg-gray-600 cursor-pointer select-none"
       onClick={handleThemeChange}
     >
       切换到{isDark ? "普通" : "暗黑"}模式

@@ -95,6 +95,9 @@ body {
   content: "";
   background-size: 182px;
   opacity: 0.04;
+  /* TODO: 将此处 z-index 设置为负数后，生成的打卡图片会丢失掉这个 image 背景 */
+  /* NOTE: 不设置的话需要手动调整页面其他元素的 z-index，至少要大于等于 0 */
+  /* z-index: 0; */
   /* 本地和远程图片加载 */
   background-image: url(/noise.png);
   /* background-image: url(https://cdn.jsdelivr.net/gh/fengstats/blogcdn@main/2024/noise.png); */
