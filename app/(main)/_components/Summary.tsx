@@ -19,14 +19,15 @@ export function Summary() {
   return (
     <div
       // NOTE: 固定宽度可以解决打卡分享时中间内容换行问题
-      // w-[540px]
       className="
+        w-[540px]
         mb-[100px]
         p-[32px]
         rounded-[8px]
         bg-white
         shadow-lg
         text-center
+        dark:bg-slate-800
         "
     >
       <h3 className="pl-[0.5em] text-[22px] font-bold">
