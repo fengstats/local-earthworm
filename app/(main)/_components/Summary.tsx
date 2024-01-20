@@ -22,7 +22,9 @@ export function Summary() {
       className="
         w-[540px]
         mb-[100px]
+        m-auto
         p-[32px]
+        pb-[48px]
         rounded-[8px]
         bg-white
         shadow-lg
