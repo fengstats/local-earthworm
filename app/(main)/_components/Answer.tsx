@@ -55,7 +55,18 @@ export function Answer() {
 
   return (
     <div className="text-center mb-[4rem]" style={{ fontFamily: "Maple Mono SC NF Freeze" }}>
-      <div className="text-5xl text-fuchsia-500 dark:text-gray-50">{word}</div>
+      <div
+        className="
+          text-5xl
+          text-fuchsia-500
+          dark:text-gray-50
+          transition-all
+        "
+        // NOTE: 缩小单词之前的间距
+        style={{ wordSpacing: "-0.2em" }}
+      >
+        {word}
+      </div>
       <div className="my-[28px] text-xl text-gray-500" style={{ fontFamily: "Arial" }}>
         {soundmark}
       </div>
