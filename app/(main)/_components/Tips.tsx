@@ -57,7 +57,7 @@ export function Tips({ mode, onShowAnswer: showAnswer, onShowQuestion: showQuest
       if (event.key === "Escape" || event.key === "Tab") {
         if (mode === "Answer") {
           showQuestion();
-        } else {
+        } else if (mode === "Question") {
           showAnswer();
         }
       }
