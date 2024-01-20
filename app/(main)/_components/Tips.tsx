@@ -47,9 +47,9 @@ export function Tips({ mode, onShowAnswer: showAnswer, onShowQuestion: showQuest
         if (mode === "Answer") {
           // 下一个语句
           handleToNextStatement();
-          // REVIEW: 在这先切换答题页面可以解决闪屏问题
-          // 如果不在这切换的话，会先去渲染下一个题目的 Answer 页面
-          // 然后再渲染下一个题目的 Question 页面，导致一闪而过的答案，很不舒服
+          // REVIEW: 修复切换到下个题目页时，会出现答案页的闪屏问
+          // 如果不在这切换的话，会先去渲染下一个题目的 Answer 页面，显示新的内容
+          // 然后再渲染下一个题目的 Question 页面，现象就是出现一闪而过的答案，会有点不舒服
           showQuestion();
         }
       }
