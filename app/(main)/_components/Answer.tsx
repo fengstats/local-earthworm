@@ -19,10 +19,10 @@ export function Answer() {
     });
   }
 
-  // NOTE: 每次切换进入页面时自动发音
-  // useEffect(() => {
-  //   playSound();
-  // }, []);
+  // NOTE: 每次进入页面时自动发音
+  useEffect(() => {
+    playSound();
+  }, []);
 
   // NOTE: 事件绑定在 Tip 中已经完成了
   // useEffect(() => {
