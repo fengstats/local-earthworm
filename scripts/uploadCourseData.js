@@ -10,12 +10,10 @@ const dotenv = require("dotenv");
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
 (async function () {
-  const courses = JSON.parse(
-    fs.readFileSync(path.resolve(__dirname, "./courses.json"))
-  );
+  const courses = JSON.parse(fs.readFileSync(path.resolve(__dirname, "./courses.json")));
   const datasourceUrl = process.env.DATABASE_URL;
 
-  console.log(courses, datasourceUrl);
+  // console.log(courses, datasourceUrl);
 
   const prisma = new PrismaClient({
     datasourceUrl,
@@ -25,28 +23,19 @@ dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
   let orderIndex = 1;
   for (const { cId, fileName } of courses) {
-    const courseDataText = fs.readFileSync(
-      path.resolve(__dirname, `./courses/${fileName}.json`),
-      "utf-8"
-    );
+    const courseDataText = fs.readFileSync(path.resolve(__dirname, `./courses/${fileName}.json`), "utf-8");
     const courseData = JSON.parse(courseDataText);
 
     const promiseAll = courseData.map((statement, index) => {
       const { chinese, english, soundmark } = statement;
-      const result = createStatement(
-        orderIndex,
-        chinese,
-        english,
-        soundmark,
-        cId
-      );
+      const result = createStatement(orderIndex, chinese, english, soundmark, cId);
       orderIndex++;
       return result;
     });
 
-    console.log(`开始上传： courseName:${fileName}`);
+    console.log(`开始上传第 ${fileName} 课`);
     await Promise.all(promiseAll);
-    console.log(`courseName: ${fileName} 全部上传成功`);
+    console.log(`第 ${fileName} 课上传成功 ✅`);
   }
 
   async function createStatement(order, chinese, english, soundmark, courseId) {
