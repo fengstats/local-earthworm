@@ -1,65 +1,39 @@
-# earthworm
+# EarthWorm
 
-Learning English through the method of constructing sentences with conjunctions
+用连词构句法学习英语
 
-## Start
+## 如何开始
 
-Start the project based on the following steps
+根据以下步骤启动项目
 
-Note that this project depends on docker, so make sure that docker is installed first.
+⚠️ 请注意，此项目依赖于 Docker 和 MySQL，因此请确保首先使用启动 Docker。
 
-1. install project dependencies
-
-   ```shell
-   pnpm install
-   ```
-
-2. start application
-
-   ```shell
-   pnpm docker:start
-   ```
-
-3. stop application
-
-   ```shell
-   pnpm docker:stop
-   ```
-
-4. init data of database (It only needs to be executed the first time the database is created)
-
-   ```shell
-   pnpm db:init
-   ```
-
-5. if you want to start mysql locally separately for debugging, you can execute
+0. 如果您想在本地通过 Docker 单独启动 MySQL 进行调试
 
    ```shell
    pnpm docker:mysql
    ```
 
-## 当发现数据有问题时 如何修改
+1. 安装项目依赖
 
-目前课程的数据是基于 pdf 解析得到的 json 文件， 所以在解析的过程中必然会出现一些小问题
+   ```shell
+   pnpm install
+   ```
 
-那么当遇到这些小问题的时候 大家可以通过修改 json 文件来做出对 earthworm 的贡献
+2. 启动项目
 
-以下是贡献步骤：
+   ```shell
+   pnpm docker:start
+   ```
 
-1. 找到当前课程所对应的 json 文件
+3. 停止项目
 
-   json 文件在 scripts/courses 里面
+   ```shell
+   pnpm docker:stop
+   ```
 
-   注意 courseId 和 json 名称不是对齐的，需要手动查看确定要修改的 json 文件（TODO 这里是个优化点）
+4. 初始化数据库数据（只需在第一次创建数据库时执行）
 
-2. 找到 json 文件中的错误语句
-
-   可以直接在当前的 json 文件中搜索即可， 一个对象对应一个 statement
-
-3. 修改 json 后提交 pr
-
-   在 pr 中可以介绍下修改的原因
-
-### 数据的更新
-
-后续我会在合并完 pr 后更新线上数据库上的数据完成更新
+   ```shell
+   pnpm db:init
+   ```
