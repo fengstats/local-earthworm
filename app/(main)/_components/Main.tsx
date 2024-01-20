@@ -8,9 +8,7 @@ import { useCourse } from "@/store/course";
 import { Summary } from "./Summary";
 
 export function Main() {
-  const [mode, setMode] = useState<"Question" | "Answer" | "Summary">(
-    "Question"
-  );
+  const [mode, setMode] = useState<"Question" | "Answer" | "Summary">("Question");
 
   const { currentCourse, statementIndex } = useCourse();
 
@@ -29,7 +27,13 @@ export function Main() {
   }, [statementIndex]);
 
   function handleShowAnswer() {
+    console.log("============= Main handleShowAnswer");
     setMode("Answer");
+  }
+
+  function handleShowQuestion() {
+    console.log("============= Main handleShowQuestion");
+    setMode("Question");
   }
 
   const viewMap = {
@@ -40,12 +44,14 @@ export function Main() {
 
   const CurrentView = viewMap[mode];
 
+  console.log("切换了 →", mode);
+
   return (
     <div className="h-full flex justify-center items-center relative">
-      <div>{CurrentView}</div>
+      <div className="w-[88vw]">{CurrentView}</div>
       <div className="absolute bottom-[15%] w-full flex flex-col items-center">
         <CourseProgress></CourseProgress>
-        <Tips onShowAnswer={handleShowAnswer}></Tips>
+        <Tips mode={mode} onShowAnswer={handleShowAnswer} onShowQuestion={handleShowQuestion}></Tips>
       </div>
     </div>
   );
