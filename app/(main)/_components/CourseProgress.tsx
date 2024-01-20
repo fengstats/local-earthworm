@@ -6,15 +6,14 @@ export function CourseProgress() {
 
   const max = currentCourse?.statements?.length || 0;
   const value = statementIndex;
-  const percent = (value / max) * 100
-
-
-  console.log(statementIndex)
+  const percent = (value / max) * 100;
 
   return (
     <div className="flex items-center justify-center">
       <Progress value={percent} className="w-[30vw] min-w-[380px]" />
-      <div className="ml-[12px] text-right pt-[1px]" style={{ fontFamily: "Input Mono" }}>{value}/{max}</div>
+      <div className="ml-[12px] text-right pt-[1px]" style={{ fontFamily: "Input Mono" }}>
+        {value}/{max}
+      </div>
     </div>
   );
 }

@@ -25,7 +25,7 @@ export default function UnderlineInput({
 
   const handleInput = (event: FormEvent<HTMLInputElement>, i: number) => {
     const inputEventValue = event.currentTarget.value.replace(/\s+$/, "");
-    setValues(prevValues => {
+    setValues((prevValues) => {
       const newValues = [...prevValues];
       newValues[i].value = inputEventValue;
       return newValues;
@@ -35,7 +35,8 @@ export default function UnderlineInput({
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     const { code, shiftKey, target } = event;
 
-    if (code === "Enter") {
+    // NOTE: 检查提交
+    if (code === "Enter" || code === "Space") {
       handleCheckAnswer();
       return;
     }
@@ -48,7 +49,7 @@ export default function UnderlineInput({
 
       const i = findErrorIndex("next");
       if (i === -1) {
-        setActiveInputIndex(prevIndex => prevIndex + 1);
+        setActiveInputIndex((prevIndex) => prevIndex + 1);
         return;
       }
 
@@ -67,7 +68,7 @@ export default function UnderlineInput({
 
       const i = findErrorIndex("prev");
       if (i === -1) {
-        setActiveInputIndex(prevIndex => prevIndex - 1);
+        setActiveInputIndex((prevIndex) => prevIndex - 1);
         return;
       }
 
@@ -128,27 +129,29 @@ export default function UnderlineInput({
         "border-b-2",
         "border-b-solid",
         "border-b-gray-300 dark:border-b-gray-500",
-        i === activeInputIndex ? "active" : "",
+        i === activeInputIndex ? "border-b-fuchsia-500" : "",
       ]
         .filter(Boolean)
         .join(" ")}
       onClick={() => {
         setActiveInputIndex(i);
         inputRef.current?.focus();
-      }}>
+      }}
+    >
       {word}
-      <div className="code-value dark:text-indigo-500  text-[rgba(32,32,32,0.6)]">
+      {/* dark:text-indigo-500 */}
+      <div className="code-value text-gray-500 dark:text-fuchsia-500">
         {i === activeInputIndex ? (
           <input
             ref={inputRef}
-            className="code-input"
+            className="code-input text-black caret-fuchsia-500 dark:text-white"
             type="text"
             value={values[i].value}
             autoFocus
-            onInput={e => {
+            onInput={(e) => {
               handleInput(e, i);
             }}
-            onFocus={e => {
+            onFocus={(e) => {
               setTimeout(() => {
                 e.target.select();
               });

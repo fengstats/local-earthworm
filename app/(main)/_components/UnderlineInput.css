@@ -1,25 +1,35 @@
 .code-box {
-  height: 10vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 80vw;
-  margin-top: 8px;
+  padding-left: 0.5rem;
+  font-size: 24px;
+  /* height: 10vh; */
+  /* max-width: 80vw; */
+  /* margin-top: 8px; */
   /* font-family: "Monaco"; */
   /* font-family: "Input Mono Freeze"; */
   font-family: "Maple Mono SC NF Freeze";
 }
 
+/* 媒体查询低于 768px 时的样式 */
+@media (max-width: 768px) {
+  .code-box {
+    font-size: 18px;
+  }
+}
+
 .code-box .code-item {
   position: relative;
-  min-height: 6vh;
+  /* min-height: 100px; */
+  padding: 0 0.5em;
+  margin-right: 0.5em;
+  /* NOTE: 输入框字体大小 */
+  font-size: 2em;
   text-align: center;
-  font-size: 4vw;
   color: transparent;
   transition: border 0.3s;
   box-sizing: border-box;
-  padding: 0 1vw;
-  margin-right: 8px;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -33,14 +43,10 @@
 
 .code-box .code-input {
   position: absolute;
-  bottom: -8px;
-  z-index: -1;
+  /* bottom: -10px; */
   width: 100%;
   outline: none;
   text-align: center;
-  background: transparent;
-}
-
-.active {
-  border-bottom-color: #1e80ff !important;
+  background-color: transparent;
+  z-index: -1;
 }
